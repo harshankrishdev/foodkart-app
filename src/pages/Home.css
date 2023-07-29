@@ -62,6 +62,8 @@ img.card-img-top.product-preview-img {
   background-color: black;
 }
 
-.bg-warning span {
-  background-color: white;
+.bg-warning {
+  background-color: white !important;
+  background-color: rgba(255, 193, 7, var(--bs-bg-opacity));
+  background-color: rgba(var(--bs-warning-rgb), var(--bs-bg-opacity));
 }
