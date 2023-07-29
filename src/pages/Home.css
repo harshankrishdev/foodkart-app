@@ -61,3 +61,7 @@ img.card-img-top.product-preview-img {
 .app {
   background-color: black;
 }
+
+.bg-warning {
+  background-color: blue;
+}
