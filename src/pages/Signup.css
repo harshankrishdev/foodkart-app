@@ -1,0 +1,32 @@
+.signup__image--container {
+  background-image: url("../assets/signup.png");
+  height: 80vh;
+  background-size: cover;
+}
+
+.signup__form--container,
+.login__form--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
+
+.login__image--container {
+  background-image: url("../assets/login.png");
+  height: 80vh;
+  background-size: cover;
+}
+
+@media screen and (max-width: 756px) {
+  .login__image--container,
+  .signup__image--container {
+    display: none;
+  }
+}
+
+.login {
+  background-color: black;
+  color: white;
+}
