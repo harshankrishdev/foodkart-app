@@ -28,7 +28,7 @@ function Footer() {
             <MDBIcon fab icon="linkedin" />
           </a>
           <a
-            href="https://github.com/Harshankrishna/ecom-iplanet"
+            href="https://github.com/harshankrishdev"
             className="me-4 text-reset"
             target="blank"
           >

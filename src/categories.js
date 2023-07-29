@@ -4,16 +4,16 @@
 
 const categories = [
   {
-    name: "BreakFast🍔",
+    name: "BreakFast",
     // img: `${watch}`,
   },
   {
-    name: "Lunch🍽️",
+    name: "Lunch",
     // img: `${phone}`,
   },
 
   {
-    name: "Dinner🍹",
+    name: "Dinner",
     // img: `${mac}`,
   },
 ];
