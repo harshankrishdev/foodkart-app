@@ -1,4 +1,4 @@
-# ecom-iplanet
+# FoodKart App
 
-Live URL:~ https://hk-ecom-iplanet.netlify.app/</br>
-Backend Code:~ https://github.com/Harshankrishnakv/ecom-iplanet-server
+Live URL:~ https://foodkart-app.netlify.app/</br>
+Backend Code:~ https://github.com/harshankrishdev/foodkart-server
