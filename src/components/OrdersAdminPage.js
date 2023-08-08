@@ -55,14 +55,25 @@ function OrdersAdminPage() {
     return <h1 className="text-center pt-4">No orders yet</h1>;
   }
 
-  function TableRow({ _id, count, owner, total, status, products, address }) {
+  function TableRow({
+    _id,
+    count,
+    owner,
+    total,
+    status,
+    products,
+    phonenumber,
+    address,
+  }) {
     return (
       <tr>
         <td>{_id}</td>
         <td>{owner?.name}</td>
         <td>{count}</td>
         <td>{total}</td>
+        <td>{phonenumber}</td>
         <td>{address}</td>
+
         <td>
           {status === "processing" ? (
             <Button size="sm" onClick={() => markShipped(_id, owner?._id)}>
@@ -93,6 +104,7 @@ function OrdersAdminPage() {
             <th>Client Name</th>
             <th>Items</th>
             <th>Order Total</th>
+            <th>Phone Number</th>
             <th>Address</th>
           </tr>
         </thead>

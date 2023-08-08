@@ -17,12 +17,14 @@ import EditProductPage from "./pages/EditProductPage";
 import { useEffect } from "react";
 import { io } from "socket.io-client";
 import { addNotification } from "./features/userSlice";
+import Profile from "./pages/Profile";
 
 function App() {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   useEffect(() => {
     const socket = io("ws://https://wild-pink-ant-tam.cyclic.app");
+    // const socket = io("ws://http://localhost:8080");
     socket.off("notification").on("notification", (msgObj, user_id) => {
       if (user_id === user._id) {
         dispatch(addNotification(msgObj));
@@ -51,12 +53,14 @@ function App() {
 
           {user && (
             <>
+              <Route path="/profile" element={<Profile />} />
               <Route path="/cart" element={<CartPage />} />
               <Route path="/orders" element={<OrdersPage />} />
             </>
           )}
           {user && user.isAdmin && (
             <>
+              <Route path="/profile" element={<Profile />} />
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/product/:id/edit" element={<EditProductPage />} />
             </>

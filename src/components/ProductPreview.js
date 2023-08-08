@@ -17,7 +17,7 @@ function ProductPreview({ _id, category, name, pictures }) {
         />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
-          <Badge bg="warning" text="dark">
+          <Badge bg="warn" text="dark">
             {category}
           </Badge>
         </Card.Body>

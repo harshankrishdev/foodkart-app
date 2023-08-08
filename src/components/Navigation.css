@@ -71,3 +71,6 @@
 .navbar-brand {
   padding-left: 0.5rem;
 }
+.avatar .img-fluid {
+  height: 40px;
+}

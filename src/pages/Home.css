@@ -20,7 +20,7 @@
 
 .card {
   border: none !important;
-  width: 15rem !important;
+  /* width: 15rem !important; */
   border-radius: 20px;
   background-color: #ffbe0b;
 }
@@ -62,8 +62,16 @@ img.card-img-top.product-preview-img {
   background-color: black;
 }
 
-.bg-warning {
+.bg-warn {
   background-color: white !important;
   background-color: rgba(255, 193, 7, var(--bs-bg-opacity));
   background-color: rgba(var(--bs-warning-rgb), var(--bs-bg-opacity));
+}
+.mt-2 {
+  justify-content: center;
+}
+
+.btn {
+  width: 70%;
+  align-self: center;
 }
