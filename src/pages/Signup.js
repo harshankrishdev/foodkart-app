@@ -50,6 +50,7 @@ function Signup() {
       .catch((e) => console.log(e));
   }
   return (
+    <div className="login">
     <Container>
       <Row>
         <Col md={6} className="signup__form--container">
@@ -123,6 +124,7 @@ function Signup() {
         <Col md={6} className="signup__image--container"></Col>
       </Row>
     </Container>
+                      </div>
   );
 }
 
