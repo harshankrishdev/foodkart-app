@@ -9,7 +9,9 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState(
+    "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
+  );
   const [imgToRemove, setImgToRemove] = useState(null);
   const [signup, { error, isLoading, isError }] = useSignupMutation();
 
@@ -21,14 +23,14 @@ function Signup() {
     const widget = window.cloudinary.createUploadWidget(
       {
         cloudName: "dyrhddc0u",
-        uploadPreset: "food-app",
+        uploadPreset: "ecom-app",
       },
       (error, result) => {
         if (!error && result.event === "success") {
-          setImages((prev) => [
-            ...prev,
-            { url: result.info.url, public_id: result.info.public_id },
-          ]);
+          setImages(
+            (prev) =>
+              result.info.url
+          );
         }
       }
     );
@@ -40,85 +42,87 @@ function Signup() {
       .delete(`/images/${imgObj.public_id}/`)
       .then((res) => {
         setImgToRemove(null);
-        setImages((prev) =>
-          prev.filter((img) => img.public_id !== imgObj.public_id)
+        setImages(
+          (prev) =>
+            "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
         );
       })
       .catch((e) => console.log(e));
   }
-
   return (
-    <div className="login">
-      <Container>
-        <Row>
-          <Col md={6} className="signup__form--container">
-            <Form style={{ width: "100%" }} onSubmit={handleSignup}>
-              <h1>Create an account</h1>
-              {isError && <Alert variant="danger">{error.data}</Alert>}
-              <Form.Group>
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Your name"
-                  value={name}
-                  required
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </Form.Group>
+    <Container>
+      <Row>
+        <Col md={6} className="signup__form--container">
+          <Form style={{ width: "100%" }} onSubmit={handleSignup}>
+            <h1>Create an account</h1>
+            {isError && <Alert variant="danger">{error.data}</Alert>}
+            <Form.Group>
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Your name"
+                value={name}
+                required
+                onChange={(e) => setName(e.target.value)}
+              />
+            </Form.Group>
 
-              <Form.Group>
-                <Form.Label>Email Address</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Enter email"
-                  value={email}
-                  required
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </Form.Group>
+            <Form.Group>
+              <Form.Label>Email Address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                required
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
 
-              <Form.Group className="mb-3">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Enter Password"
-                  value={password}
-                  required
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Button type="button" onClick={showWidget}>
-                  Upload Images
-                </Button>
-                <div className="images-preview-container">
-                  {images.map((image) => (
-                    <div className="image-preview">
-                      <img src={image.url} alt="" />
-                      {imgToRemove !== image.public_id && (
-                        <i
-                          className="fa fa-times-circle"
-                          onClick={() => handleRemoveImg(image)}
-                        ></i>
-                      )}
-                    </div>
-                  ))}
+            <Form.Group className="mb-3">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Enter Password"
+                value={password}
+                required
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Button type="button" onClick={showWidget}>
+                Upload Images
+              </Button>
+              <div className="images-preview-container">
+                <div className="image-preview">
+                  <img
+                    src={
+                      images ??
+                      "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
+                    }
+                    alt="avatar"
+                  />
+                  <i
+                    className="fa fa-times-circle"
+                    onClick={() => handleRemoveImg(images)}
+                  ></i>
                 </div>
-              </Form.Group>
-              <Form.Group>
-                <Button type="submit" disabled={isLoading}>
-                  Create account
-                </Button>
-              </Form.Group>
-              <p className="pt-3 text-center">
-                Don't have an account? <Link to="/login">Login</Link>{" "}
-              </p>
-            </Form>
-          </Col>
-          <Col md={6} className="signup__image--container"></Col>
-        </Row>
-      </Container>
-    </div>
+              </div>
+            </Form.Group>
+
+            <Form.Group>
+              <Button type="submit" disabled={isLoading}>
+                Create account
+              </Button>
+            </Form.Group>
+            <p className="pt-3 text-center">
+              Don't have an account? <Link to="/login">Login</Link>{" "}
+            </p>
+          </Form>
+        </Col>
+        <Col md={6} className="signup__image--container"></Col>
+      </Row>
+    </Container>
   );
 }
 
