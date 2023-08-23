@@ -51,6 +51,33 @@ function Login() {
                 Don't have an account? <Link to="/signup">Create account</Link>{" "}
               </p>
             </Form>
+                    <h2>Credentials</h2>
+                            <table>
+                            <tr>
+                            <th>Admin Credentials</th>
+                            </tr>
+                            <tr>
+                            <td>Email</td>
+                            <td>harshan@gmail.com</td>
+                            </tr>
+                            <tr>
+                            <td>Password</td>
+                            <td>123456</td>
+                            </tr>
+                            </table>
+                            <table>
+                            <tr>
+                            <th>User Credentials</th>
+                            </tr>
+                            <tr>
+                            <td>Email</td>
+                            <td>user@gmail.com</td>
+                            </tr>
+                            <tr>
+                            <td>Password</td>
+                            <td>123456</td>
+                            </tr>
+                            </table>
           </Col>
           <Col md={6} className="login__image--container"></Col>
         </Row>
